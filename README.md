@@ -49,7 +49,7 @@ The major changes adopted from the REINFORCE policy method is:
 ![Screenshot from 2020-12-19 23-51-57](https://user-images.githubusercontent.com/56476887/102696554-50316580-4255-11eb-9d97-5123146289e6.png)
 
 ### Gradients 
-To visualize the gradients, the .py module was made. We visualize the gradients when we include and don't include the baseline values. Red denotes the value of gradients when baseline is not subtracted and blue is when baseline is subtracted from the loss function. We can notice the huge decrease in gradients when baseline is subtracted. And this gets better when we use the actor-ctric algorithm to obtain the ideal value of baseline.
+To visualize the gradients, the finding_gradients_cartpole_pg.py module was made. We visualize the gradients when we include and don't include the baseline values. Red denotes the value of gradients when baseline is not subtracted and blue is when baseline is subtracted from the loss function. We can notice the huge decrease in gradients when baseline is subtracted. And this gets better when we use the actor-ctric algorithm to obtain the ideal value of baseline.
 
 ![Screenshot from 2020-12-19 23-54-30](https://user-images.githubusercontent.com/56476887/102696616-a4d4e080-4255-11eb-8dc0-3853c1e5e691.png)
 ![Screenshot from 2020-12-19 23-54-39](https://user-images.githubusercontent.com/56476887/102696619-a7373a80-4255-11eb-8d5a-022dcd876ec9.png)
