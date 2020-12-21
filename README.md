@@ -1,5 +1,7 @@
 # RL algorithms such as Cross Entropy, Sarsa, Expected Sarsa, Q-learning, DQN, Policy gradient, REINFORCE, Actor critic and Hill Climbing on Environments: [Cartpole](https://gym.openai.com/envs/CartPole-v0/), [FrozenLake](https://gym.openai.com/envs/FrozenLake-v0/), [Taxi](https://gym.openai.com/envs/Taxi-v2/) and [BlackJack](https://gym.openai.com/envs/Blackjack-v0/) 
 
+More about DQN and it's variations such as N-step DQN etc in [my other repository](https://github.com/Hrushikesh-github/DQN-and-Extensions)
+
 ### Cross-Entropy
 Cross Entropy is a on-policy method. We play N-episodes using our current model, then smaple only those episodes based on a criteria and then train using these episodes on our Neural Network, taking observations as input and desired action as output. Cross Entropy on Cartpole gives good and quick results. Reward_bound here is the boundary that we use to winnow episodes.
 ![Screenshot from 2020-12-19 22-55-47](https://user-images.githubusercontent.com/56476887/102695542-0ee98780-424e-11eb-9ea0-6cef1c9ccfaf.png)
