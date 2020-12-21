@@ -1,29 +1,43 @@
-# RL-algorithms-no-Cartpole and FrozenLake-environments-
+# RL algorithms such as Cross Entropy, Sarsa, Expected Sarsa, Q-learning, DQN, Policy gradient, REINFORCE, Actor critic and Hill Climbing on Environments: [Cartpole](https://gym.openai.com/envs/CartPole-v0/), [FrozenLake](https://gym.openai.com/envs/FrozenLake-v0/), [Taxi](https://gym.openai.com/envs/Taxi-v2/) and [BlackJack](https://gym.openai.com/envs/Blackjack-v0/) 
 
 ### Cross-Entropy
+Cross Entropy is a on-policy method. We play N-episodes using our current model and environment, then smaple only those episodes which have better reward boundary and then train using these episodes on our Neural Network, taking observations as input and desired action as output.  
+
+Cross Entropy on Cartpole gives good results and quickly as well. Reward_bound here is the boundary that we use to winnow episodes.
 ![Screenshot from 2020-12-19 22-55-47](https://user-images.githubusercontent.com/56476887/102695542-0ee98780-424e-11eb-9ea0-6cef1c9ccfaf.png)
 ![Screenshot from 2020-12-19 22-55-57](https://user-images.githubusercontent.com/56476887/102695550-1315a500-424e-11eb-97ff-b69bea26bffd.png)
 ![Screenshot from 2020-12-19 22-56-15](https://user-images.githubusercontent.com/56476887/102695554-1577ff00-424e-11eb-9e9e-b5f98f03bc37.png)
+
+However using Cross Entropy with the same parameters on slighter tougher environment of Frozen Lake doesn't give us solution. The major reason for this is the reward system. In cartpole we obtain reward of +1/-1 for every step. But in Frozen Lake, reward is only obtained once the episode finishes. Failed episodes dominate at the start of training and there are high chances of training not improving, since our neural network learns predominantly from bad experiences.
 ![Screenshot from 2020-12-19 22-57-11](https://user-images.githubusercontent.com/56476887/102695556-17da5900-424e-11eb-96c4-e39498a2306b.png)
 ![Screenshot from 2020-12-19 22-48-52](https://user-images.githubusercontent.com/56476887/102695512-db0e6200-424d-11eb-8c46-ad3e25c03ba6.png)
 ![Screenshot from 2020-12-19 22-49-02](https://user-images.githubusercontent.com/56476887/102695539-0bee9700-424e-11eb-89b1-e3254226e8bb.png)
 
 ### Q-learning and V-learning
+Sarsa, Expected Sarsa have been implemented on a Jupyter Notebook on the BlackJack Environment. 
+
+Q-learning is an off-policy method. While using Q(s,a) to improve the agent, frozenlake was solved within 20 iterations(trajectories) whereas using the value of state, the environment is solved in 504 iterations. THis difference is because the agent just requires the Q values to solve the environment. However V-values are also powerful especially in the actor-critic family of algorithms. The graphs here are the rewards vs episodes obtained for Q-learning and V-learning respectively
+
 ![Screenshot from 2020-12-19 23-10-00](https://user-images.githubusercontent.com/56476887/102696418-1f9cfc00-4254-11eb-80ab-226b7ca31b4f.png)
 ![Screenshot from 2020-12-19 23-22-15](https://user-images.githubusercontent.com/56476887/102696420-23c91980-4254-11eb-8482-b9be8f59680e.png)
 ![Screenshot from 2020-12-19 23-22-29](https://user-images.githubusercontent.com/56476887/102696423-26c40a00-4254-11eb-9c1d-e335f01d11bb.png)
 
 
 ### DQN
+More about DQN and it's variations in [my other repository](https://github.com/Hrushikesh-github/DQN-and-Extensions)
 ![Screenshot from 2020-12-19 23-31-22](https://user-images.githubusercontent.com/56476887/102696428-30e60880-4254-11eb-84b9-f6acab674a60.png)
 ![Screenshot from 2020-12-19 23-32-51](https://user-images.githubusercontent.com/56476887/102696429-33486280-4254-11eb-9150-c308670df3d1.png)
 ![Screenshot from 2020-12-19 23-33-10](https://user-images.githubusercontent.com/56476887/102696430-35aabc80-4254-11eb-8f1e-abcd6dcfa1e9.png)
 
 ### Reinforce
+In Reinforce policy gradient algorithm, we train Neural network to minimize the loss function L = - Q(s,a)*log(neural_network(s|a)). This method is similar to cross entropy in few ways, such as we obtain transitions from our current model, for every transition of episode, we calculate the discounted reward, which would be our Q(s,a). Then we obtain the loss and perform gradient descent. This way we don't require explicit exploration. However, there are various drawbacks such as Full episode requirements, High gradients variance etc
 ![Screenshot from 2020-12-19 23-47-50](https://user-images.githubusercontent.com/56476887/102696478-a9e56000-4254-11eb-86e5-e916c62b08f5.png)
 ![Screenshot from 2020-12-19 23-47-59](https://user-images.githubusercontent.com/56476887/102696480-ace05080-4254-11eb-8a02-8cd62ae9d0ea.png)
 ![Screenshot from 2020-12-19 23-40-15](https://user-images.githubusercontent.com/56476887/102696494-c71a2e80-4254-11eb-8209-bbea816fb832.png)
+
+
 ### Policy Gradient
+To overcome the 
 ![Screenshot from 2020-12-19 23-40-26](https://user-images.githubusercontent.com/56476887/102696497-ced9d300-4254-11eb-813d-98ea8955684d.png)
 ![Screenshot from 2020-12-19 23-47-50](https://user-images.githubusercontent.com/56476887/102696543-41e34980-4255-11eb-86be-533f63b9e1ec.png)
 ![Screenshot from 2020-12-19 23-49-42](https://user-images.githubusercontent.com/56476887/102696547-4871c100-4255-11eb-8d3b-a407ce6d18ed.png)
